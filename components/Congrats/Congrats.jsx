@@ -2,14 +2,21 @@ import React from "react";
 
 /**
  * Functional react component for congratulatory message
- * @returns {JSX.Element}
+ * @param {{
+ *   success: boolean
+ * }} props – React props
+ * @returns {JSX.Element} – rendered component or null of `success`
  */
-const Congrats = () => {
+const Congrats = ({success}) => {
+  if (success) {
     return (
-        <div>
-          Congrats component
-        </div>
+      <div data-test="component-congrats">
+        <span data-test="congrats-message">Congratulations! You guessed the word!</span>
+      </div>
     );
+  }
+  return <div data-test="component-congrats"/>;
+
 };
 
 export default Congrats;
